@@ -1,5 +1,5 @@
 <template>
-    <div id="opinionBody" >
+    <div class="container-fluid" id="opinionBody" >
         <div class="d-flex flex-column text-center align-items-center"> 
         <h1> Escribe tu opinion para el juego :{{ name }}</h1>
         <form action="" class="border w-75" >
@@ -50,6 +50,9 @@ export default {
         name:{
             type:String,
             required:true
+        },
+        image:{
+            required:true
         }
         
     },
@@ -68,6 +71,7 @@ export default {
             if(this.nuevaOpinion.nombre && this.nuevaOpinion.opinion){
                 this.opiniones.push({...this.nuevaOpinion})
             }
+
             this.nuevaOpinion.nombre = "";
             this.nuevaOpinion.opinion = "";
            
@@ -91,15 +95,13 @@ export default {
 
         saveChanges(){
             Vue.set(this.opiniones,this.opinionEdit,({...this.nuevaOpinion}))
-            
-            
+
             this.opinionEdit=null
 
             this.nuevaOpinion.nombre = "";
             this.nuevaOpinion.opinion = "";
             
-        }
-        
+        }    
         
     }
     // watch: {},
@@ -113,17 +115,19 @@ export default {
 
 <style scoped>
 #opinionBody{
-    height: 100vh;
+    height: 100vh ;
+    overflow: auto;
     background: rgb(88,24,69);
     background: linear-gradient(164deg, rgba(88,24,69,1) 0%, rgba(199,0,57,1) 49%, rgba(255,87,51,1) 97%);
-    
 
 }
+
 h1{
     font-weight: bold;
     color: #FFC300;
 
 }
+
 form{
     background-color: #DAF7A6 ;
     border-radius: 5px;
@@ -148,6 +152,12 @@ form{
 #acordion_body{
     background-color: #DAF7A6 ;
     border: none    ;
+
+}
+
+p{
+    color: #900C3F;
+    font-size: larger ;
 
 }
 

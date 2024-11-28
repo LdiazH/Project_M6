@@ -1,21 +1,24 @@
 <template>
-    
+    <div>
+    <NotFound></NotFound>
+</div>
 </template>
 
 <script>
-export default {
-    name: 'component-card',
-    props: {
-        
+import NotFound from '@/components/NotFound.vue';
 
-    },
+export default {
+    name: 'component-notFoundOp',
+    // props: {},
     data: function(){
         return {}
     },
     // computed: {},
     //methods: {}
     // watch: {},
-    // components: {},
+    components: {
+        NotFound
+    },
     // mixins: [],
     // filters: {},
     // -- Lifecycle Methods

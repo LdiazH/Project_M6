@@ -1,7 +1,8 @@
 <template>
   <div id="homeBody">
-    <button @click="getData()">Cargar</button>
-    <p style="color: aliceblue;" ></p>
+    <h1>Listado de Videojuegos</h1>
+    
+    
   <div class="home d-flex flex-wrap" >
     <div v-for="game in games" :key="game.id" >
       <div class="card m-3" style="width: 18rem; " id="cardBp">
@@ -16,13 +17,16 @@
         <hr>
         <div class="d-flex flex-start align-items-center p-2 justify-content-space-around">
             <button @click="redirecTo(game.name)" class="rounded p-1" id="opinar">Opinar</button> 
-            <img src="@/assets/heart.svg" alt="like" id="like" class="ms-2" @click.self="like(game.name)">
-            <div v-if="mostrar">
-            <p> +{{ addLike }}</p>
-          </div>
+            <img src="@/assets/heart.svg" alt="like" id="like" class="ms-2">
+            
+            <p> +</p>
+          
         </div>
     </div>
   
+  </div>
+  <div>
+    <button @click="getData()" id="cargarVideojuegos">Cargar mas videojuegos...</button>
   </div>
     
     
@@ -39,20 +43,12 @@ export default {
   data: function(){
     return{
       games:[],
-      addLike:"",
-      mostrar:false,
-      page:1
-      
-
+      page:1,
 
     }
   },
   props:{
-    // name:{
-    //         type:String,
-    //         required:true
-    //     }
-
+    
   },
   components: {
 
@@ -83,15 +79,10 @@ export default {
         },
       redirecTo(name){
         this.$router.push('/opiniones/'+name)
+ 
       
     },
 
-   
-    // like(juego){
-    //   alert(juego)
-    //   this.mostrar=true
-    //   this.addLike++
-    // }
   },
   // -- Lifecycle Methods
   mounted(){
@@ -106,13 +97,34 @@ export default {
 
 }
 
+h1{
+  color: #FFC300;
+}
+
+#cargarVideojuegos{
+  background-color: #900C3F;
+  color: #FFC300;
+  border: none;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#cargarVideojuegos:hover{
+  background-color: #DAF7A6;
+  color: #581845;
+  
+}
+
 #homeBody{
   background-color: #581845;
+
 }
 
 #cardBp{
   background-color:#DAF7A6 
 }
+
 img{
     border-radius: 5px;
 }
@@ -120,7 +132,9 @@ img{
 #opinar{
   background-color: #581845;
   color: #FFC300;
+  border: none;
 }
+
 #opinar:hover{
   background-color: #900C3F
   

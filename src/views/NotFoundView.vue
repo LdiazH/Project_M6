@@ -1,12 +1,12 @@
 <template>
     <div>
-    <h1> Nuevo Componente</h1>
-    
-    <router-link to="/">Ir al Home</router-link>
+    <NotFound></NotFound>
 </div>
 </template>
 
 <script>
+import NotFound from '@/components/NotFound.vue';
+
 export default {
     name: 'component-notFound',
     // props: {},
@@ -16,7 +16,9 @@ export default {
     // computed: {},
     //methods: {}
     // watch: {},
-    // components: {},
+    components: {
+        NotFound
+    },
     // mixins: [],
     // filters: {},
     // -- Lifecycle Methods
